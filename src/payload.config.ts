@@ -119,14 +119,14 @@ export default buildConfig({
     },
   },
   i18n: {
-  supportedLanguages: {en, pl, hr
+  supportedLanguages: { en,pl, hr
   },
-    fallbackLanguage: "en",
+    // fallbackLanguage: "en",
     translations: customTranslationsObject,
   },
   localization: {
-    locales: ["en", "hr","pl"],
-    defaultLocale: "en",
+    locales: ["en", "pl","hr"],
+    defaultLocale: "pl"
   },
   // This config helps us configure global or default features that the other editors can inherit
   editor: defaultLexical,

@@ -45,7 +45,11 @@ import { OrderTotalPriceField as OrderTotalPriceField_63abaf0a31ec6f768271a4b4b9
 import { OrderTotalWithShippingField as OrderTotalWithShippingField_d9a9c903479e10a583293c2793437e7c } from '@/collections/(ecommerce)/Orders/components/OrderTotalWithShippingField'
 import { CurrencySelect as CurrencySelect_6647ec830145e25b548d2199ccda14d1 } from '@/components/(ecommerce)/CurrencySelect'
 import { DetailLabel as DetailLabel_fdf47050741fd52cac7936b6d02f0572 } from '@/collections/(ecommerce)/Products/components/RowLabels/DetailLabel'
+import { OptionLabel as OptionLabel_58dfd143c2293f0d8340fb9b6c82ae98 } from '@/collections/(ecommerce)/Products/components/RowLabels/OptionLabel'
+import { SizeSelect as SizeSelect_c38714f93b739e5d2fc40d8561655455 } from '@/collections/(ecommerce)/Products/components/SizeSelect'
+import { ColorSelect as ColorSelect_bde1551bee045e02f28e524df0813be2 } from '@/collections/(ecommerce)/Products/components/ColorSelect'
 import { PriceRowLabel as PriceRowLabel_67fe256c61a1e173af7f14df0f613a3b } from '@/components/(ecommerce)/RowLabels/PriceRowLabel'
+import { VariantLabel as VariantLabel_ecb65b0d221cdf19d0bc78515633cd95 } from '@/collections/(ecommerce)/Products/components/RowLabels/VariantLabel'
 import { WeightRangeRowLabel as WeightRangeRowLabel_408d0e590e7be77eda1e9250fd393637 } from '@/components/(ecommerce)/RowLabels/WeightRangeRowLabel'
 import { DeliveryZonesRowLabel as DeliveryZonesRowLabel_0d2e9891c92e5d6a59a49ed2697b12d5 } from '@/components/(ecommerce)/RowLabels/DeliveryZonesRowLabel'
 import { LinkToDoc as LinkToDoc_aead06e4cbf6b2620c5c51c9ab283634 } from '@payloadcms/plugin-search/client'
@@ -109,7 +113,11 @@ export const importMap = {
   "@/collections/(ecommerce)/Orders/components/OrderTotalWithShippingField#OrderTotalWithShippingField": OrderTotalWithShippingField_d9a9c903479e10a583293c2793437e7c,
   "@/components/(ecommerce)/CurrencySelect#CurrencySelect": CurrencySelect_6647ec830145e25b548d2199ccda14d1,
   "@/collections/(ecommerce)/Products/components/RowLabels/DetailLabel#DetailLabel": DetailLabel_fdf47050741fd52cac7936b6d02f0572,
+  "@/collections/(ecommerce)/Products/components/RowLabels/OptionLabel#OptionLabel": OptionLabel_58dfd143c2293f0d8340fb9b6c82ae98,
+  "@/collections/(ecommerce)/Products/components/SizeSelect#SizeSelect": SizeSelect_c38714f93b739e5d2fc40d8561655455,
+  "@/collections/(ecommerce)/Products/components/ColorSelect#ColorSelect": ColorSelect_bde1551bee045e02f28e524df0813be2,
   "@/components/(ecommerce)/RowLabels/PriceRowLabel#PriceRowLabel": PriceRowLabel_67fe256c61a1e173af7f14df0f613a3b,
+  "@/collections/(ecommerce)/Products/components/RowLabels/VariantLabel#VariantLabel": VariantLabel_ecb65b0d221cdf19d0bc78515633cd95,
   "@/components/(ecommerce)/RowLabels/WeightRangeRowLabel#WeightRangeRowLabel": WeightRangeRowLabel_408d0e590e7be77eda1e9250fd393637,
   "@/components/(ecommerce)/RowLabels/DeliveryZonesRowLabel#DeliveryZonesRowLabel": DeliveryZonesRowLabel_0d2e9891c92e5d6a59a49ed2697b12d5,
   "@payloadcms/plugin-search/client#LinkToDoc": LinkToDoc_aead06e4cbf6b2620c5c51c9ab283634,

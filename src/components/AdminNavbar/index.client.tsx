@@ -8,18 +8,17 @@ import {
   type NavGroupType,
 } from "@payloadcms/ui/shared";
 import LinkWithDefault from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useSearchParams } from "next/navigation";
 import { type NavPreferences } from "payload";
 
 import { baseClass } from "./index";
 import { getNavIcon } from "./navIconMap";
-import { useMemo } from "react";
+import { useEffect, useMemo } from "react";
 
 type Props = {
   groups: NavGroupType[];
   navPreferences: NavPreferences | null;
 };
-
 
 const collectionOrder: string[] = [
   "Website Management",
@@ -32,7 +31,7 @@ const collectionOrder: string[] = [
   "Payments settings",
   "Administration",
   "Collections",
-  "Paywalls"
+  "Paywalls",
 ];
 export const NavClient = ({ groups, navPreferences }: Props) => {
   const pathname = usePathname();
@@ -67,11 +66,11 @@ export const NavClient = ({ groups, navPreferences }: Props) => {
     }
 
     // Sort groups according to collectionOrder
-    const sortedGroups = [...resultGroups].sort((a:any, b:any) => {
-  const aLabel: string = typeof a?.label === "string" ? a.label : "";
-  const bLabel: string = typeof b?.label === "string" ? b.label : "";
-  const aIndex = collectionOrder.indexOf(aLabel);
-  const bIndex = collectionOrder.indexOf(bLabel);
+    const sortedGroups = [...resultGroups].sort((a: any, b: any) => {
+      const aLabel: string = typeof a?.label === "string" ? a.label : "";
+      const bLabel: string = typeof b?.label === "string" ? b.label : "";
+      const aIndex = collectionOrder.indexOf(aLabel);
+      const bIndex = collectionOrder.indexOf(bLabel);
       if (aIndex !== -1 && bIndex !== -1) {
         return aIndex - bIndex;
       }
@@ -83,17 +82,24 @@ export const NavClient = ({ groups, navPreferences }: Props) => {
     return sortedGroups;
   }, [groups]);
 
-
- 
   const {
     config: {
       routes: { admin: adminRoute },
     },
   } = useConfig();
 
-  
+  const { i18n, switchLanguage } = useTranslation();
+  const params = useSearchParams()
+  const lang = params.get("locale");
+  const changeLanguage = async (lang:string) => {
+    if(!switchLanguage) return 
+    await switchLanguage(lang as any)
+    // window.location.reload();
+  }
+  useEffect(()=>{
+    changeLanguage(lang ? lang : "en")
+  }, [lang])
 
-  const { i18n } = useTranslation();
 
   return (
     <>
@@ -102,6 +108,8 @@ export const NavClient = ({ groups, navPreferences }: Props) => {
         if (label === "Customer Management") {
           console.log("Customer Management entities:", entities);
           console.log("Current language:", i18n?.language);
+          console.log("Entity label:", label);
+          console.log("Translated label:", getTranslation(label, i18n));
         }
         return (
           <NavGroup
@@ -127,12 +135,6 @@ export const NavClient = ({ groups, navPreferences }: Props) => {
               const activeCollection = pathname === href;
 
               const Icon = getNavIcon(slug as string);
-
-              // Debug: log label and translation for Customer Management entity
-              if (label === "Customer Management") {
-                console.log("Entity label:", label);
-                console.log("Translated label:", getTranslation(label, i18n));
-              }
 
               return (
                 <LinkWithDefault
@@ -165,7 +167,9 @@ export const NavClient = ({ groups, navPreferences }: Props) => {
                       className={`${baseClass}__icon mr-2`}
                     />
                   )}
-                  <span className={`${baseClass}__link-label text-lg leading-0`}>
+                  <span
+                    className={`${baseClass}__link-label text-lg leading-0`}
+                  >
                     {getTranslation(label, i18n)}
                   </span>
                 </LinkWithDefault>
