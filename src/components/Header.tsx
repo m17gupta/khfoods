@@ -202,7 +202,6 @@ const HeaderMinor = () => {
 
         </div>
       </div>
-
     </header>
   );
 };
