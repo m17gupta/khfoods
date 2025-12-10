@@ -4566,7 +4566,7 @@ export interface EmailMessage {
   messages: {
     logo?: (string | null) | Media;
     additionalText?: string | null;
-    template: 'default';
+    template: 'default' | 'template 1';
   };
   updatedAt?: string | null;
   createdAt?: string | null;

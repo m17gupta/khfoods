@@ -28,7 +28,7 @@ const HeaderMinor = ({logourl}:any) => {
     [t("products")]: [
       { name: t("domestic"), link: "/our-products/domestic" },
       { name: t("international"), link: "/our-products/international" },
-    ],
+    ]
   };
 
   const mainMenu = [
@@ -40,8 +40,8 @@ const HeaderMinor = ({logourl}:any) => {
     { name: t("wholesale"), link: "/wholesale" },
     {
       name: "",
-      icon: <MdOutlineShoppingBag size={20}/>,
-      link: "/cart",
+      icon: <MdOutlineShoppingBag size={15}/>,
+      link: "/cart"
     },
   ];
 

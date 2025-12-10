@@ -17,7 +17,7 @@ const testimonials = [
     image: "/assets/users/user1.jpg",
     message:
       "OMG, delicious roasted peanuts. Me and my dad went to the Oriental Food Market in Lauderdale Lakes yesterday. My father is 93 years old. He loves your peanuts.",
-    rating: 5,
+    rating: 5
   },
   {
     id: 2,
@@ -26,7 +26,7 @@ const testimonials = [
     image: "/assets/users/user2.jpg",
     message:
       "I’m a big fan of your product! I always share them with my friends in Hong Kong. Hope your product can sell in China and Hong Kong soon.",
-    rating: 4,
+    rating: 4
   },
   {
     id: 3,
@@ -44,7 +44,7 @@ const testimonials = [
     image: "/assets/users/user4.jpg",
     message:
       "Bought these peanuts for my dad and he absolutely loved them! Super fresh and very crunchy.",
-    rating: 5,
+    rating: 5
   },
 ];
 
