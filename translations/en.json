@@ -5,7 +5,7 @@
   },
   "LocaleSwitch": {
     "label": "Change language",
-     "locale": "{locale, select, en {English} hr {Harvatski} other {Unknown}}"
+    "locale": "{locale, select, en {English} zh {Chinease} other {Unknown}}"
   },
   "ProductDetails": {
     "add-to-cart": "Add to cart",

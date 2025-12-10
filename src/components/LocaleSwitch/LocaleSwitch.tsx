@@ -11,7 +11,7 @@ import { LocaleSwitchSelect } from "./LocaleSwitchSelect";
 export function LocaleSwitch() {
   const t = useTranslations("LocaleSwitch");
   const locale = useLocale();
-
+  
   return (
     //TODO; better fallback
     <Suspense fallback="loading...">
