@@ -39,13 +39,8 @@ const HeaderMinor = () => {
     { name: t("wholesale"), link: "/wholesale" },
     {
       name: "",
-<<<<<<< Updated upstream
-      icon: <MdOutlineShoppingBag size={20}/>,
-      link: "/cart",
-=======
       icon: <MdOutlineShoppingBag size={15}/>,
       link: "/cart"
->>>>>>> Stashed changes
     },
   ];
 
