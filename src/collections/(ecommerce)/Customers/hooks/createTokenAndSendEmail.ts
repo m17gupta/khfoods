@@ -14,7 +14,7 @@ export const createTokenAndSendEmail: CollectionAfterOperationHook<"customers"> 
 }) => {
   const payload = req.payload;
   if (operation !== "create" || !result) return result;
-
+   console.log("result--", result)
   const user = await payload.findByID({
     collection: "customers",
     id: result.id,

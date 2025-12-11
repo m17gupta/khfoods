@@ -50,6 +50,10 @@ export const sendWelcomeEmail: CollectionAfterChangeHook<Customer> = async ({
         `[Welcome Email] ❌ Failed to send welcome email to --->${doc.email}`,
         error
       );
+      console.error(
+        `[Welcome Email] ❌ Failed to send welcome email to --->${doc.email}`,
+        error
+      );
       // Don't throw error - we don't want to break the registration flow
     }
   }

@@ -1889,7 +1889,9 @@ export interface Customer {
           | 'sk'
           | 'sm'
           | 'ua'
-          | 'va';
+          | 'va'
+          | 'us'
+          | 'cn';
         region: string;
         postalCode: string;
         phone: string;
@@ -2018,6 +2020,8 @@ export interface Order {
           | 'sm'
           | 'ua'
           | 'va'
+          | 'us'
+          | 'cn'
         )
       | null;
     region?: string | null;
@@ -2083,7 +2087,9 @@ export interface Order {
       | 'sk'
       | 'sm'
       | 'ua'
-      | 'va';
+      | 'va'
+      | 'us'
+      | 'cn';
     region: string;
     postalCode: string;
     email: string;
@@ -4819,6 +4825,8 @@ export interface InpostPickup {
           | 'sm'
           | 'ua'
           | 'va'
+          | 'us'
+          | 'cn'
         )[];
         freeShipping?:
           | {
@@ -4915,6 +4923,8 @@ export interface InpostCourier {
           | 'sm'
           | 'ua'
           | 'va'
+          | 'us'
+          | 'cn'
         )[];
         freeShipping?:
           | {
@@ -5011,6 +5021,8 @@ export interface InpostCourierCod {
           | 'sm'
           | 'ua'
           | 'va'
+          | 'us'
+          | 'cn'
         )[];
         freeShipping?:
           | {
@@ -5099,7 +5111,9 @@ export interface Fulfilment {
       | 'sk'
       | 'sm'
       | 'ua'
-      | 'va';
+      | 'va'
+      | 'us'
+      | 'cn';
     region: string;
     postalCode: string;
     email: string;
