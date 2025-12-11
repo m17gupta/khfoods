@@ -83,6 +83,8 @@ export interface Config {
     permission: Permission;
     roles: Role;
     payment: Payment;
+    productnew: Productnew;
+    attributes: Attribute;
     redirects: Redirect;
     forms: Form;
     'form-submissions': FormSubmission;
@@ -120,6 +122,8 @@ export interface Config {
     permission: PermissionSelect<false> | PermissionSelect<true>;
     roles: RolesSelect<false> | RolesSelect<true>;
     payment: PaymentSelect<false> | PaymentSelect<true>;
+    productnew: ProductnewSelect<false> | ProductnewSelect<true>;
+    attributes: AttributesSelect<false> | AttributesSelect<true>;
     redirects: RedirectsSelect<false> | RedirectsSelect<true>;
     forms: FormsSelect<false> | FormsSelect<true>;
     'form-submissions': FormSubmissionsSelect<false> | FormSubmissionsSelect<true>;
@@ -2460,6 +2464,99 @@ export interface Payment {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "productnew".
+ */
+export interface Productnew {
+  id: string;
+  title: string;
+  slug?: string | null;
+  slugLock?: boolean | null;
+  description?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  /**
+   * If you have variants, first image will be variant image.
+   */
+  images: (string | Media)[];
+  details?:
+    | {
+        title: string;
+        content: {
+          root: {
+            type: string;
+            children: {
+              type: string;
+              version: number;
+              [k: string]: unknown;
+            }[];
+            direction: ('ltr' | 'rtl') | null;
+            format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+            indent: number;
+            version: number;
+          };
+          [k: string]: unknown;
+        };
+        id?: string | null;
+      }[]
+    | null;
+  enableVariants?: boolean | null;
+  categoriesArr?:
+    | {
+        category: string | ProductCategory;
+        subcategories?: (string | ProductSubCategory)[] | null;
+        id?: string | null;
+      }[]
+    | null;
+  /**
+   * Define stock for whole product. A stock of 0 disables checkout for this product.
+   */
+  stock?: number | null;
+  /**
+   * Define weight for whole product.
+   */
+  weight?: number | null;
+  pricing?:
+    | {
+        value: number;
+        currency: string;
+        id?: string | null;
+      }[]
+    | null;
+  bought?: number | null;
+  updatedAt: string;
+  createdAt: string;
+  _status?: ('draft' | 'published') | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "attributes".
+ */
+export interface Attribute {
+  id: string;
+  name: string;
+  defaultvalues?:
+    | {
+        value: string;
+        id?: string | null;
+      }[]
+    | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "redirects".
  */
 export interface Redirect {
@@ -2689,6 +2786,14 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'payment';
         value: string | Payment;
+      } | null)
+    | ({
+        relationTo: 'productnew';
+        value: string | Productnew;
+      } | null)
+    | ({
+        relationTo: 'attributes';
+        value: string | Attribute;
       } | null)
     | ({
         relationTo: 'redirects';
@@ -4182,6 +4287,60 @@ export interface PaymentSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "productnew_select".
+ */
+export interface ProductnewSelect<T extends boolean = true> {
+  title?: T;
+  slug?: T;
+  slugLock?: T;
+  description?: T;
+  images?: T;
+  details?:
+    | T
+    | {
+        title?: T;
+        content?: T;
+        id?: T;
+      };
+  enableVariants?: T;
+  categoriesArr?:
+    | T
+    | {
+        category?: T;
+        subcategories?: T;
+        id?: T;
+      };
+  stock?: T;
+  weight?: T;
+  pricing?:
+    | T
+    | {
+        value?: T;
+        currency?: T;
+        id?: T;
+      };
+  bought?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  _status?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "attributes_select".
+ */
+export interface AttributesSelect<T extends boolean = true> {
+  name?: T;
+  defaultvalues?:
+    | T
+    | {
+        value?: T;
+        id?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "redirects_select".
  */
 export interface RedirectsSelect<T extends boolean = true> {
@@ -5474,6 +5633,10 @@ export interface TaskSchedulePublish {
       | ({
           relationTo: 'products';
           value: string | Product;
+        } | null)
+      | ({
+          relationTo: 'productnew';
+          value: string | Productnew;
         } | null);
     global?: string | null;
     user?: (string | null) | Administrator;

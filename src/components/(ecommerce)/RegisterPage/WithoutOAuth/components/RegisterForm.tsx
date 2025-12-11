@@ -2,25 +2,37 @@
 
 import { zodResolver } from "@hookform/resolvers/zod";
 import axios, { isAxiosError } from "axios";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 
 import { Button } from "@/components/ui/button";
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { type RegisterFormData, useRegisterFormSchema } from "@/schemas/registerForm.schema";
+import {
+  type RegisterFormData,
+  useRegisterFormSchema,
+} from "@/schemas/registerForm.schema";
 
 export const RegisterForm = () => {
   const { RegisterFormSchemaResolver } = useRegisterFormSchema();
+
+  const locale = useLocale();
 
   const form = useForm<RegisterFormData>({
     resolver: zodResolver(RegisterFormSchemaResolver),
     defaultValues: {
       email: "",
       password: "",
-      confirmPassword: ""
-    }
+      confirmPassword: "",
+    },
   });
 
   const [message, setMessage] = useState("");
@@ -30,10 +42,18 @@ export const RegisterForm = () => {
   const onSubmit = async (values: RegisterFormData) => {
     setMessage("");
     try {
-      const res = await axios.post("/api/customers", {
-        email: values.email,
-        password: values.password
-      });
+      const res = await axios.post(
+        "/api/customers",
+        {
+          email: values.email,
+          password: values.password,
+        },
+        {
+          headers: {
+            "x-locale": locale, //  send locale to payload
+          },
+        }
+      );
 
       if (res.status === 200 || res.status === 201) {
         setMessage(t("success"));
@@ -51,7 +71,10 @@ export const RegisterForm = () => {
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col space-y-6">
+      <form
+        onSubmit={form.handleSubmit(onSubmit)}
+        className="flex flex-col space-y-6"
+      >
         <FormField
           control={form.control}
           name="email"
@@ -93,7 +116,9 @@ export const RegisterForm = () => {
         />
 
         {form.formState.errors.root?.message && (
-          <p className="text-sm text-red-500">{form.formState.errors.root.message}</p>
+          <p className="text-sm text-red-500">
+            {form.formState.errors.root.message}
+          </p>
         )}
         {message && <p className="text-sm text-green-600">{message}</p>}
 

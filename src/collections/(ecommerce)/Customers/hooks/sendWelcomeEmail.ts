@@ -8,32 +8,48 @@ import { sendEmail } from "@/utilities/nodemailer";
 
 import type { CollectionAfterChangeHook } from "payload";
 
-export const sendWelcomeEmail: CollectionAfterChangeHook<Customer> = async ({ previousDoc, doc }) => {
+export const sendWelcomeEmail: CollectionAfterChangeHook<Customer> = async ({
+  previousDoc,
+  doc,
+  req,
+}) => {
   // Check if user just got verified
-  console.log("previousDoc._verified ===",previousDoc._verified )
-  console.log("doc._verified ===",doc._verified )
-  
+
+
   // if (previousDoc._verified === false && doc._verified === true) {
-      
-  if ( !doc._verified) {
-    console.log(`[Welcome Email] Attempting to send welcome email to: ${doc.email}`);
-    
+
+  if (!doc._verified) {
+
     try {
-      const locale = (await getLocale()) as Locale;
-  console.log("calling email")
+      let locale: Locale = "en";
+
+      if (req.headers instanceof Headers) {
+        locale = (req.headers.get("x-locale") || "en") as Locale;
+      } else if (typeof req.headers === "object") {
+        locale = (req.headers["x-locale"] || "en") as Locale;
+      }
+
+      // const locale = (await getLocale()) as Locale;
+
       const html = await render(
         await WelcomeEmail({
           customer: doc,
-          locale
-        }),
+          locale,
+        })
       );
 
       const t = await getTranslations({ locale, namespace: "Emails.welcome" });
 
-      const res = await sendEmail({ to: doc.email, subject: t("subject"), html });
-      console.log(`[Welcome Email] ✅ Successfully sent welcome email to ---- ${doc.email}`, res);
+      await sendEmail({
+        to: doc.email,
+        subject: t("subject"),
+        html,
+      });
     } catch (error) {
-      console.error(`[Welcome Email] ❌ Failed to send welcome email to --->${doc.email}`, error);
+      console.error(
+        `[Welcome Email] ❌ Failed to send welcome email to --->${doc.email}`,
+        error
+      );
       // Don't throw error - we don't want to break the registration flow
     }
   }

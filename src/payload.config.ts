@@ -43,6 +43,8 @@ import { Library } from "./collections/Presets";
 import { Payment } from "./collections/Payment";
 import { Courier } from "./collections/Courier";
 import { SiteSetting } from "./globals/sitesetting/config";
+import { ProductNew } from "./collections/Product";
+import { Attributes } from "./collections/Attribute";
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
@@ -152,6 +154,8 @@ export default buildConfig({
     // Library,
     Payment,
     // Courier,
+    ProductNew,
+    Attributes
   ],
   cors: [getServerSideURL()].filter(Boolean),
   globals: [
@@ -165,7 +169,7 @@ export default buildConfig({
     InPostCourierCOD,
     // Paywalls,
     Fulfilment,
-    SiteSetting
+    SiteSetting,
   ],
   plugins: [
     ...plugins,

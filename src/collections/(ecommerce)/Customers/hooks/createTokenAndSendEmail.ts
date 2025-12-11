@@ -35,6 +35,7 @@ export const createTokenAndSendEmail: CollectionAfterOperationHook<"customers"> 
 
     const t = await getTranslations({ locale, namespace: "Emails.verify-email" });
 
+
     const res = await sendEmail({ to: result.email, subject: t("subject"), html });
     console.log(res);
   } catch (error) {
