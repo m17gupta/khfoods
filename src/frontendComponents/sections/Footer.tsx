@@ -1,10 +1,13 @@
+"use client";
+
 import * as React from "react";
 import { motion } from "framer-motion";
 import footerLogo from "../../../public/assets/Image/logo-footer.svg"
-import { FaHeadset } from "react-icons/fa";
+import { FaEnvelope, FaHeadset, FaMapMarkerAlt, FaPhoneAlt } from "react-icons/fa";
 import appStore from "../../../public/assets/Image/appStore.png"
 import googlePlay from "../../../public/assets/Image/googlePlay.png"
 import { cn } from "@/utilities/cn";
+import { Send } from "lucide-react";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 16 },
@@ -30,7 +33,7 @@ export default function Footer({
   brand = {
     name: "Elextra",
     tagline:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+      "K H Food became a company in Orange County, California in 1991. They had the vision to become the highest quality peanut company in California."
   },
   quickLinks = [
     { label: "About us", href: "#" },
@@ -49,7 +52,7 @@ export default function Footer({
   ],
   contact = {
     blurb:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut",
+      "Enter your email address for our mailing list to keep yourself updated.",
     phone: "+ 123 456 789",
     chatHref: "#"
   }
@@ -68,11 +71,9 @@ export default function Footer({
           {/* Brand + socials */}
           <div className="md:col-span-3">
             <div className="flex items-center gap-2">
-              {/* Logo mark (bolt) */}
-              {/* <svg width="20" height="20" viewBox="0 0 24 24" fill="#FF7020">
-                <path d="M13 3L4 14h6l-1 7 9-11h-6l1-7z" />
-              </svg> */}
-          <img src={footerLogo} alt="footer logo"></img>
+             
+             {/* <img src={footerLogo} alt="footer logo"></img> */}
+             <img src="https://khfood.com/wp-content/uploads/2012/06/khfood_logo.png"></img>
             </div>
             <p className="mt-4 text-lg leading-6 text-[#000]/50">
               {brand.tagline}
@@ -128,51 +129,57 @@ export default function Footer({
           {/* Customer Area */}
           <div className="md:col-span-3">
             <h4 className="text-xl font-bold tracking-wide">
-              CUSTOMER AREA
+              CONTACT US
             </h4>
-            <nav className="mt-4 space-y-3 text-sm">
-              {customerLinks.map((l) => (
-                <a
-                  key={l.label}
-                  href={l.href}
-                  className="block text-lg text-[#000000]/70 hover:text-[#FF7020]"
-                >
-                  {l.label}
-                </a>
-              ))}
-            </nav>
+           <div className="space-y-3 text-sm text-white/80">
+              <a
+                href="tel:+7146391201"
+                className="flex items-center gap-3 hover:text-[#FF7020] transition"
+              >
+                <FaPhoneAlt className="text-white/70" />
+                <span className="text-base">(714)639-1201</span>
+              </a>
+
+              <a
+                href="mailto:contact@khfood.com"
+                className="flex items-center gap-3 hover:text-[#FF7020] transition"
+              >
+                <FaEnvelope className="text-white/70" />
+                <span className="text-base">contact@khfood.com</span>
+              </a>
+
+              <div className="flex items-start gap-3">
+                <FaMapMarkerAlt className="mt-1 text-white/70" />
+                <span className="text-base leading-relaxed">585 Yorbita Rd.La Puente, CA 91744</span>
+              </div>
+            </div>
           </div>
 
           {/* Contact */}
           <div className="md:col-span-3">
-            <h4 className="text-xl font-bold tracking-wide">CONTACT</h4>
+            <h4 className="text-xl font-bold tracking-wide">SUBSCRIBE</h4>
             <p className="mt-4 text-base text-[#000]">{contact.blurb}</p>
 
-         <div className="flex justify-between">
-            <div className="mt-4 flex items-start gap-3">
-              {/* headset icon */}
-            <FaHeadset className="w-14 h-14 text-[#8D8D8D]"/>
+              <form className="w-full">
+              <div className="w-full max-w-xl flex items-stretch mt-4">
+                <input
+                  aria-label="Email address"
+                
+                  placeholder="Your email address"
+                  type="email"
+                  className="w-full h-12 bg-[#f6efe1] text-black px-4 outline-none border border-white/20 rounded-l-md "
+                />
 
-              <div>
-                <div className="text-xs text-zinc-500">Have any question?</div>
-                <a
-                  href={`tel:${contact.phone.replace(/[^0-9+]/g, "")}`}
-                  className="text-lg font-semibold text-[#FF7020]"
+                <button
+                  type="submit"
+                 
+                  className="h-12 w-14 bg-[#2DBE60] hover:bg-[#27ab56] disabled:opacity-60 disabled:cursor-not-allowed border border-[#2DBE60] rounded-r-md flex items-center justify-center"
+                  aria-label="Subscribe"
                 >
-                  {contact.phone}
-                </a>
+                  <Send className="w-5 h-5 text-white" />
+                </button>
               </div>
-            </div>
-
-            {/* Live Chat */}
-            <a
-              href={contact.chatHref || "#"}
-              style={{borderRadius:"12px"}}
-              className="mt-4 inline-flex items-center justify-center text-lg border border-blue-200 px-6 py-2  font-semibold text-[#3D7BD8] hover:bg-blue-50"
-            >
-              LIVE CHAT
-            </a>
-          </div>
+            </form>
 
             {/* Store badges */}
             <div className="mt-6 flex  items-center gap-3">
@@ -192,12 +199,12 @@ export default function Footer({
       {/* Bottom strip */}
       <div className="container mx-auto flex flex-col items-start gap-4 py-6 text-base text-[#5C5C5C] md:flex-row md:items-center md:justify-between">
         <div className="flex items-center gap-2">
-          <span className="uppercase tracking-wide">ELEXTRA</span>
-          <span> - </span>
-          <span>© 2020 All Rights Reserved</span>
+          {/* <span className="uppercase tracking-wide">ELEXTRA</span>
+          <span> - </span> */}
+          <span>© 1991-2025 K H Food Corp. All rights reserved. KH logo is a trademark of KH Food Corp.</span>
         </div>
 
-        <div className="flex items-center gap-20">
+        {/* <div className="flex items-center gap-20">
           <span>Payment</span>
           <div className="flex items-center gap-4">
             <span className="font-semibold text-sky-500">VISA</span>
@@ -205,7 +212,7 @@ export default function Footer({
             <span className="font-semibold text-sky-400">PAYPAL</span>
             <span className="font-semibold text-amber-500">BITCOIN</span>
           </div>
-        </div>
+        </div> */}
       </div>
     </footer>
   );

@@ -131,7 +131,7 @@ function ProductListing({
                   }}
                   spaceBetween={16}
                   slidesPerView={"auto"}
-                  className="h-full !py-0 product-swiper"
+                  className="h-full !py-0 "
                 >
                   {allproduct.slice(0, 8).map((product) => (
                     <SwiperSlide key={product.id} className="!w-64 !h-full">

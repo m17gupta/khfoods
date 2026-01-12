@@ -14,7 +14,7 @@ import {
 import "../globals.css";
 import { AdminBar } from "@/components/AdminBar";
 import { LivePreviewListener } from "@/components/LivePreviewListener";
-import { Footer } from "@/globals/Footer/Component";
+
 import { type Locale } from "@/i18n/config";
 import { routing } from "@/i18n/routing";
 import { Providers } from "@/providers";
@@ -25,6 +25,7 @@ import { cn } from "src/utilities/cn";
 import type { Metadata } from "next";
 import { getCachedGlobal } from "@/utilities/getGlobals";
 import { getSiteSettings } from "@/utilities/getSiteSettings";
+import Footer from "@/frontendComponents/sections/Footer";
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
@@ -64,7 +65,13 @@ export default async function RootLayout({
       <head>
         {/* <InitTheme /> */}
         <link href="/favicon.ico" rel="icon" sizes="32x32" />
+        
         <link href="/favicon.svg" rel="icon" type="image/svg+xml" />
+
+      <link rel="preconnect" href="https://fonts.googleapis.com"/>
+      <link rel="preconnect" href="https://fonts.gstatic.com" />
+      <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet"/>
+
         <style>{data}</style>
       </head>
       <body className="max-w-screen overflow-x-clip">

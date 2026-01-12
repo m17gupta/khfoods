@@ -305,3 +305,8 @@ html[data-theme="light"] {
 .product-swiper{
   overflow: visible !important;
 }
+
+
+body{
+    font-family: "Montserrat", sans-serif;
+}

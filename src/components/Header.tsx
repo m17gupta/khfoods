@@ -92,18 +92,14 @@ const HeaderMinor = ({logourl}:any) => {
     { name: t("contact"), link: "/contact" },
     { name: t("store-locator"), link: "/store-locator" },
     { name: t("wholesale"), link: "/wholesale" },
-    {
-      name: "",
-      icon: <MdOutlineShoppingBag size={15}/>,
-      link: "/cart"
-    },
+  
   ];
 
   return (
     <header className="w-full sticky top-0 z-50">
 
       {/* TOP BAR */}
-      <div className="bg-primary text-white text-[14px] py-2 shadow-sm">
+      <div className="bg-primary text-white text-[14px] py-0 shadow-sm">
         <div className="max-w-7xl mx-auto px-4 flex justify-between items-center">
 
           <div className="flex items-center gap-6">
@@ -169,9 +165,9 @@ const HeaderMinor = ({logourl}:any) => {
               <MdAccountCircle size={18} /> {t("my-account")}
             </Link>
 
-            <Link href="/cart" prefetch={true} className="flex items-center gap-2 cursor-pointer hover:text-gray-200 transition bg-white text-black px-3 py-1 rounded">
-              <FaShoppingCart size={16} className="text-black" />
-              <span className="text-black font-semibold">{itemCount} {itemCount === 1 ? 'Item' : 'Items'}</span>
+            <Link href="/cart" prefetch={true} className="flex items-center gap-2 cursor-pointer hover:text-gray-200 transition  text-white px-3 py-1 rounded">
+              <FaShoppingCart size={16} className="text-white" />
+              <span className="text-white font-semibold">{itemCount} {itemCount === 1 ? 'Item' : 'Items'}</span>
             </Link>
           </div>
         </div>
@@ -203,9 +199,9 @@ const HeaderMinor = ({logourl}:any) => {
                   }`}
                 >
                   {/* ICON + NAME */}
-                  {item.icon ? (
-                    <span className="flex items-center gap-1">
-                      {item.icon} {item.name}
+                  {item.name ? (
+                    <span className="flex items-center gap-1 ">
+                      {item.name}
                     </span>
                   ) : (
                     item.name
@@ -289,8 +285,9 @@ const HeaderMinor = ({logourl}:any) => {
                     item.active ? "text-[#d4a762]" : "text-white hover:text-[#d4a762]"
                   }`}
                 >
-                  {item.icon && item.icon} {item.name}
+                {item.name}
                 </div>
+                   {/* {item.icon && item.icon} */}
 
                 {/* DROPDOWN ARROW */}
                 {item.dropdown && (
