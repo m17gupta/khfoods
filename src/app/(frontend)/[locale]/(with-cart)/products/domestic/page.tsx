@@ -184,10 +184,9 @@ export default function RoadPage() {
         </h1>
 
         <p className="mt-5 text-white/85 leading-relaxed text-sm sm:text-base md:text-lg text-start">
-          KH Food ensures safe, hygienic, and timely domestic delivery of fresh food products.
-From careful packaging to temperature-controlled handling, we make sure quality
-reaches your doorstep without compromise.
-
+          A history of movement – The Eagle and Vector names are steeped in
+          sporting pedigree, the Goodyear range of Road tires come with the
+          technology and wealth of experience no other tire can match.
         </p>
 
         {/* buttons */}
@@ -196,14 +195,14 @@ reaches your doorstep without compromise.
             href="#browse"
             className="inline-flex items-center justify-center rounded-full bg-[#FFD100] px-6 py-3 text-sm font-semibold text-black hover:brightness-95 transition"
           >
-            Explore Our Products
+            Browse Road Tires
           </a>
 
           <a
             href="#modelmap"
             className="inline-flex items-center justify-center rounded-full border border-white/35 bg-white/10 px-6 py-3 text-sm font-semibold text-white hover:bg-white/15 transition"
           >
-            Order Now
+            Model Map
           </a>
         </div>
 
@@ -231,7 +230,7 @@ reaches your doorstep without compromise.
       <div className="hidden lg:block">
         <div className="relative h-[520px] w-full rounded-[28px] overflow-hidden border border-white/15 bg-white/5 shadow-[0_30px_120px_rgba(0,0,0,0.45)]">
           <img
-            src="/Image/khfoodImage/Image-4.jpg"
+            src="/Image/khfoodImageImage-4.jpg"
             alt="K H Food"
             className="w-full h-full object-cover"
           />
