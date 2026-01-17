@@ -31,6 +31,7 @@
     SelectValue,
     } from "@/components/ui/select";
     import { Separator } from "@radix-ui/react-select";
+import { IoLocationOutline } from "react-icons/io5";
 
     type Store = {
     id: string;
@@ -158,95 +159,95 @@
     return (
         <>
 
-            <section className="relative w-full">
+         <section className="relative w-full" id="store-locator">
         <div
             className="relative min-h-[80vh] md:h-[90vh] w-full overflow-hidden pt-24 md:pt-20"
             style={{
             backgroundImage:
-                        "url(https://khfood.com/wp-content/uploads/2019/11/Screen-Shot-2019-08-17-at-4.05.34-PM@1X.png)",
-
+                "url(https://khfood.com/wp-content/uploads/2019/11/Screen-Shot-2019-08-17-at-4.05.34-PM@1X.png)",
             backgroundSize: "cover",
             backgroundPosition: "center",
             }}
         >
             {/* overlays */}
-            <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-black/10" />
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_25%,rgba(255,209,0,0.18),transparent_40%)]" />
+            <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/50 to-black/20" />
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_25%,rgba(255,209,0,0.14),transparent_45%)]" />
 
-            <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-6 h-full grid lg:grid-cols-2 gap-12 items-center">
-            {/* LEFT CONTENT */}
-            <div className="max-w-xl mx-auto lg:mx-0 text-center lg:text-left">
-                <p className="text-white/80 text-sm tracking-[0.2em] uppercase text-start">
-                HOME · STORE LOCATOR 
+            <div className="relative z-10 mx-auto grid h-full max-w-7xl items-center gap-12 px-5 sm:px-6 lg:grid-cols-2">
+            {/* LEFT */}
+            <div className="mx-auto max-w-xl text-center lg:mx-0 lg:text-left">
+                <p className="text-start text-sm uppercase tracking-[0.2em] text-white/80">
+                HOME · STORE LOCATOR
                 </p>
 
-                <h1 className="mt-4 text-white font-medium tracking-tight leading-[1] text-5xl text-start sm:text-5xl md:text-[100px]">
-                STORE
-                <span className="block text-white/90 font-black text-3xl sm:text-4xl md:text-5xl font-bold mt-2">
-                    LOCATOR
-                </span>
+                <h1 className="mt-4 text-start text-5xl font-semibold leading-[0.95] tracking-tight text-white sm:text-6xl md:text-[88px]">
+                Store Locator
+                {/* <span className="mt-3 block text-2xl font-medium text-white/85 sm:text-3xl md:text-4xl">
+                    Find your nearest KH Food distributor.
+                </span> */}
                 </h1>
 
-                <p className="mt-5 text-white/85 leading-relaxed text-sm sm:text-base md:text-lg text-start">
-                A history of movement – The Eagle and Vector names are steeped in
-                sporting pedigree, the Goodyear range of Road tires come with the
-                technology and wealth of experience no other tire can match.
+                <p className="mt-6 text-start text-sm leading-relaxed text-white/85 sm:text-base md:text-lg">
+                Search by city, zip code, or address to discover stores near you. Need
+                help? Contact us at{" "}
+                <span className="font-semibold text-white">(714) 639 - 1201</span> or{" "}
+                <span className="font-semibold text-white">contact@khfood.com</span>.
                 </p>
 
-                {/* buttons */}
-                <div className="mt-8 flex flex-col sm:flex-row gap-3 sm:justify-center lg:justify-start">
+                {/* CTAs */}
+                <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:justify-center lg:justify-start">
                 <a
-                    href="#browse"
-                    className="inline-flex items-center justify-center rounded-full bg-[#FFD100] px-6 py-3 text-sm font-semibold text-black hover:brightness-95 transition"
+                    href="#stores"
+                    className="inline-flex items-center justify-center rounded-full bg-[#FFD100] px-6 py-3 text-sm font-semibold text-black transition hover:brightness-95"
                 >
-                    Browse Road Tires
+                    Browse Stores
                 </a>
 
                 <a
-                    href="#modelmap"
-                    className="inline-flex items-center justify-center rounded-full border border-white/35 bg-white/10 px-6 py-3 text-sm font-semibold text-white hover:bg-white/15 transition"
+                    href="#map"
+                    className="inline-flex items-center justify-center rounded-full border border-white/35 bg-white/10 px-6 py-3 text-sm font-semibold text-white transition hover:bg-white/15"
                 >
-                    Model Map
+                    View Map
                 </a>
                 </div>
 
-                {/* stats */}
-                <div className="mt-8 grid grid-cols-2 sm:grid-cols-3 gap-4 max-w-md mx-auto lg:mx-0">
+                {/* highlights */}
+                <div className="mt-10 grid max-w-md grid-cols-2 gap-4 sm:grid-cols-3 lg:mx-0">
                 {[
-                    ["Rolling", "Fast & Efficient"],
-                    ["Grip", "Wet + Dry"],
-                    ["Protection", "Race Ready"],
+                    ["Search", "City / Zip"],
+                    ["Distance", "Nearby First"],
+                    ["Directions", "One Tap"],
                 ].map(([k, v]) => (
                     <div
                     key={k}
                     className="rounded-2xl border border-white/15 bg-white/10 px-4 py-4 backdrop-blur"
                     >
-                    <p className="text-white/70 text-[10px] tracking-[0.2em] uppercase">
+                    <p className="text-[10px] uppercase tracking-[0.2em] text-white/70">
                         {k}
                     </p>
-                    <p className="mt-2 text-white font-semibold text-sm">{v}</p>
+                    <p className="mt-2 text-sm font-semibold text-white">{v}</p>
                     </div>
                 ))}
                 </div>
             </div>
 
-            {/* RIGHT IMAGE (DESKTOP ONLY) */}
+            {/* RIGHT IMAGE */}
             <div className="hidden lg:block">
-                <div className="relative h-[520px] w-full rounded-[28px] overflow-hidden border border-white/15 bg-white/5 shadow-[0_30px_120px_rgba(0,0,0,0.45)]">
+                <div className="relative h-[520px] w-full overflow-hidden rounded-[28px] border border-white/15 bg-white/5 shadow-[0_30px_120px_rgba(0,0,0,0.45)]">
                 <img
-                    src="https://khfood.com/wp-content/uploads/2019/11/Screen-Shot-2019-07-16-at-1.11.14-PM@1X.png"
-                    alt="Road ride"
-                    className="w-full h-full object-cover"
+                    src="https://images.unsplash.com/photo-1524661135-423995f22d0b?q=80&w=1600&auto=format&fit=crop"
+                    alt="Store locator map preview"
+                    className="h-full w-full object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/15 to-transparent" />
 
                 <div className="absolute bottom-6 left-6 right-6">
-                    <div className="rounded-2xl bg-black/35 border border-white/15 backdrop-blur px-5 py-4">
-                    <p className="text-white text-lg font-semibold">
-                        “Confidence at speed — built for riders who push.”
+                    <div className="rounded-2xl border border-white/15 bg-black/35 px-5 py-4 backdrop-blur">
+                    <p className="text-lg font-semibold text-white">
+                        “Find nearby stores in seconds.”
                     </p>
-                    <p className="mt-1 text-white/70 text-sm tracking-wide">
-                        Road range overview · Goodyear Bicycle Tires
+                    <p className="mt-1 text-sm tracking-wide text-white/70">
+                        Location search · Distance filter · Directions
                     </p>
                     </div>
                 </div>
@@ -257,7 +258,8 @@
             {/* bottom fade */}
             <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-b from-transparent to-white" />
         </div>
-          </section>
+        </section>
+
         
         <div className="min-h-screen w-full relative overflow-hidden py-10">
         {/* Background soft shapes (like image) */}
@@ -449,10 +451,11 @@
 
                         <div className="ml-4 flex items-center gap-5">
                         <div className="text-xs font-semibold text-black/65 whitespace-nowrap">
+                        <span><IoLocationOutline className="h-4 w-4" /></span>
                             {formatKm(s.km)}
                         </div>
 
-                        <button
+                        {/* <button
                             type="button"
                             onClick={(e) => {
                             e.preventDefault();
@@ -471,7 +474,7 @@
                                 : "text-black/60",
                             ].join(" ")}
                             />
-                        </button>
+                        </button> */}
 
                         <button
                             type="button"

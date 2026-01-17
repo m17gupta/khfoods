@@ -22,96 +22,116 @@ export default function page() {
     <div className={montserrat.className}>
       {/* HERO (your existing section kept) */}
       <section className="relative w-full">
-        <div
-          className="relative min-h-[80vh] md:h-[90vh] w-full overflow-hidden pt-24 md:pt-20"
-          style={{
-            backgroundImage:
-              "url(https://khfood.com/wp-content/uploads/2019/11/Screen-Shot-2019-08-17-at-4.05.34-PM@1X.png)",
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-          }}
-        >
-          <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-black/10" />
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_25%,rgba(255,209,0,0.18),transparent_40%)]" />
+  <div
+    className="relative min-h-[80vh] md:h-[90vh] w-full overflow-hidden pt-24 md:pt-20"
+    style={{
+      backgroundImage:
+        "url(https://khfood.com/wp-content/uploads/2019/11/Screen-Shot-2019-08-17-at-4.05.34-PM@1X.png)",
+      backgroundSize: "cover",
+      backgroundPosition: "center",
+    }}
+  >
+    {/* overlays */}
+    <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/50 to-black/20" />
+    <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_25%,rgba(255,209,0,0.14),transparent_45%)]" />
 
-          <div className="relative z-10 mx-auto grid h-full max-w-7xl items-center gap-12 px-5 sm:px-6 lg:grid-cols-2">
-            <div className="mx-auto max-w-xl text-center lg:mx-0 lg:text-left">
-              <p className="text-start text-sm uppercase tracking-[0.2em] text-white/80">
-                HOME · Contact us
+    <div className="relative z-10 mx-auto grid h-full max-w-7xl items-center gap-12 px-5 sm:px-6 lg:grid-cols-2">
+      {/* LEFT CONTENT */}
+      <div className="mx-auto max-w-xl text-center lg:mx-0 lg:text-left">
+        <p className="text-start text-sm uppercase tracking-[0.2em] text-white/80">
+          HOME · CONTACT
+        </p>
+
+        <h1 className="mt-4 text-start text-5xl font-semibold leading-[0.95] tracking-tight text-white sm:text-6xl md:text-[88px]">
+          Get in touch
+          <span className="mt-3 block text-2xl font-medium text-white/85 sm:text-3xl md:text-4xl">
+            We’ll get back to you quickly.
+          </span>
+        </h1>
+
+        <p className="mt-6 text-start text-sm leading-relaxed text-white/85 sm:text-base md:text-lg">
+          Have a question about our products, distribution, or support? Use the
+          form below or reach us directly:
+          {/* <span className="block mt-3 text-white/90">
+            Phone: <span className="font-semibold">(714) 639 - 1201</span> · Fax:{" "}
+            <span className="font-semibold">(714) 639 - 1211</span>
+          </span> */}
+          {/* <span className="block text-white/90">
+            Email: <span className="font-semibold">contact@khfood.com</span>
+          </span>
+          <span className="block text-white/90">
+            Address:{" "}
+            <span className="font-semibold">
+              585 Yorbita Rd., La Puente, CA 91744
+            </span>
+          </span> */}
+        </p>
+
+        <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:justify-center lg:justify-start">
+          <a
+            href="#contact"
+            className="inline-flex items-center justify-center rounded-full bg-[#FFD100] px-6 py-3 text-sm font-semibold text-black transition hover:brightness-95"
+          >
+            Send Message
+          </a>
+
+          <a
+            href="#map"
+            className="inline-flex items-center justify-center rounded-full border border-white/35 bg-white/10 px-6 py-3 text-sm font-semibold text-white transition hover:bg-white/15"
+          >
+            Find Us on Map
+          </a>
+        </div>
+
+        {/* contact highlight chips */}
+        <div className="mt-10 grid max-w-md grid-cols-2 gap-4 sm:grid-cols-3 lg:mx-0">
+          {[
+            ["Response", "Within 24 hrs"],
+            ["Support", "Mon–Fri"],
+            ["Location", "La Puente, CA"],
+          ].map(([k, v]) => (
+            <div
+              key={k}
+              className="rounded-2xl border border-white/15 bg-white/10 px-4 py-4 backdrop-blur"
+            >
+              <p className="text-[10px] uppercase tracking-[0.2em] text-white/70">
+                {k}
               </p>
-
-              <h1 className="mt-4 text-start text-5xl font-medium leading-[1] tracking-tight text-white sm:text-5xl md:text-[100px]">
-                Contact us
-                
-              </h1>
-
-              <p className="mt-5 text-start text-sm leading-relaxed text-white/85 sm:text-base md:text-lg">
-                A history of movement – The Eagle and Vector names are steeped in
-                sporting pedigree, the Goodyear range of Road tires come with the
-                technology and wealth of experience no other tire can match.
-              </p>
-
-              <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:justify-center lg:justify-start">
-                <a
-                  href="#contact"
-                  className="inline-flex items-center justify-center rounded-full bg-[#FFD100] px-6 py-3 text-sm font-semibold text-black transition hover:brightness-95"
-                >
-                  Contact Us
-                </a>
-
-                <a
-                  href="#map"
-                  className="inline-flex items-center justify-center rounded-full border border-white/35 bg-white/10 px-6 py-3 text-sm font-semibold text-white transition hover:bg-white/15"
-                >
-                  View Map
-                </a>
-              </div>
-
-              <div className="mt-8 grid max-w-md grid-cols-2 gap-4 sm:grid-cols-3 lg:mx-0">
-                {[
-                  ["Support", "Fast Response"],
-                  ["Quality", "Trusted Service"],
-                  ["Care", "Always Helpful"],
-                ].map(([k, v]) => (
-                  <div
-                    key={k}
-                    className="rounded-2xl border border-white/15 bg-white/10 px-4 py-4 backdrop-blur"
-                  >
-                    <p className="text-[10px] uppercase tracking-[0.2em] text-white/70">
-                      {k}
-                    </p>
-                    <p className="mt-2 text-sm font-semibold text-white">{v}</p>
-                  </div>
-                ))}
-              </div>
+              <p className="mt-2 text-sm font-semibold text-white">{v}</p>
             </div>
+          ))}
+        </div>
+      </div>
 
-            <div className="hidden lg:block">
-              <div className="relative h-[520px] w-full overflow-hidden rounded-[28px] border border-white/15 bg-white/5 shadow-[0_30px_120px_rgba(0,0,0,0.45)]">
-                <img
-                  src="https://khfood.com/wp-content/uploads/2019/11/Screen-Shot-2019-07-16-at-1.11.14-PM@1X.png"
-                  alt="Road ride"
-                  className="h-full w-full object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent" />
+      {/* RIGHT IMAGE */}
+      <div className="hidden lg:block">
+        <div className="relative h-[520px] w-full overflow-hidden rounded-[28px] border border-white/15 bg-white/5 shadow-[0_30px_120px_rgba(0,0,0,0.45)]">
+          <img
+            src="https://khfood.com/wp-content/uploads/2019/10/About-Us-Photo-1.png"
+            alt="KH Food"
+            className="h-full w-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/15 to-transparent" />
 
-                <div className="absolute bottom-6 left-6 right-6">
-                  <div className="rounded-2xl border border-white/15 bg-black/35 px-5 py-4 backdrop-blur">
-                    <p className="text-lg font-semibold text-white">
-                      “Confidence at speed — built for riders who push.”
-                    </p>
-                    <p className="mt-1 text-sm tracking-wide text-white/70">
-                      Road range overview · Goodyear Bicycle Tires
-                    </p>
-                  </div>
-                </div>
-              </div>
+          <div className="absolute bottom-6 left-6 right-6">
+            <div className="rounded-2xl border border-white/15 bg-black/35 px-5 py-4 backdrop-blur">
+              <p className="text-lg font-semibold text-white">
+                “Write us and we will get back to you.”
+              </p>
+              <p className="mt-1 text-sm tracking-wide text-white/70">
+                Support · Sales · Distribution
+              </p>
             </div>
           </div>
-
-          <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-b from-transparent to-white" />
         </div>
-      </section>
+      </div>
+    </div>
+
+    {/* bottom fade */}
+    <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-b from-transparent to-white" />
+  </div>
+</section>
+
 
       {/* CONTACT + DETAILS + FULL MAP */}
       <section id="contact" className="bg-white">
